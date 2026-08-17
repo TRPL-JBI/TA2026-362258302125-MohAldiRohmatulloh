@@ -56,8 +56,6 @@ class SatuSehatController extends Controller
         private TindakanProcedureService $tindakanProcedureService,
         private MedicationRequestService $medicationRequestService,
         private StatusPasienService $statusPasienService,
-
-
     ) {}
 
     public function sendEncounter(string $idSkrining)
@@ -68,7 +66,7 @@ class SatuSehatController extends Controller
                 'success'      => true,
                 'data' => [
                     'encounterId' => $result['encounterId'],
-                    'accessToken' => $result['accessToken'],
+                    // 'accessToken' => $result['accessToken'],
                 ],
             ]);
         } catch (\Exception $e) {

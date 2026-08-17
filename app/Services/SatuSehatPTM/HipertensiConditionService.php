@@ -89,7 +89,7 @@ class HipertensiConditionService
         $data = [
             'idPelayanan' => $idPelayanan,
             'tanggal'     => now(),
-            'puskId'      => Auth::id(),
+            'puskId'      => Auth::user()->unit,
             'resource'    => $resource,
             'idResponse'  => $idResponse,
             'method'      => $method,

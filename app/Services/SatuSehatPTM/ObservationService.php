@@ -47,7 +47,7 @@ class ObservationService
 
         $this->simpanLog(
             idPelayanan: $idPelayanan,
-            resource: 'Observation-StatusMerokok',
+            resource: 'Observation',
             idResponse: $observationId,
             method: 'POST',
             kirim: $payload,
@@ -79,7 +79,7 @@ class ObservationService
         $data = [
             'idPelayanan' => $idPelayanan,
             'tanggal'     => now(),
-            'puskId'      => '3',
+            'puskId'      => Auth::user()->unit,
             'resource'    => $resource,
             'idResponse'  => $idResponse,
             'method'      => $method,

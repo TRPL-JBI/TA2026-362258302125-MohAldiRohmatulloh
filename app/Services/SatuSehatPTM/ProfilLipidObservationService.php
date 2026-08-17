@@ -125,7 +125,7 @@ class ProfilLipidObservationService
 
         $this->simpanLog(
             idPelayanan: $idPelayanan,
-            resource: 'Observation-ProfilLipid',
+            resource: 'Observation',
             idResponse: !empty($bundleResourceIds) ? implode(',', $bundleResourceIds) : null,
             method: 'POST',
             kirim: $payload,
@@ -186,7 +186,7 @@ class ProfilLipidObservationService
         $data = [
             'idPelayanan' => $idPelayanan,
             'tanggal'     => now(),
-            'puskId'      => '3',
+            'puskId'      => Auth::user()->unit,
             'resource'    => $resource,
             'idResponse'  => $idResponse,
             'method'      => $method,

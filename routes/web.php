@@ -49,34 +49,7 @@ use App\Http\Controllers\RuangLayanan\SkriningPTM\RiwayatPTMController;
 use App\Http\Controllers\RuangLayanan\SkriningPTM\RegisterPTMController;
 use App\Http\Controllers\RuangLayanan\SkriningPTM\SkriningPTMExportController;
 
-/*
-|--------------------------------------------------------------------------
-| CATATAN REVISI (baca sebelum deploy)
-|--------------------------------------------------------------------------
-| 1. Semua endpoint debug/test (/_csrf-debug, /ping-google, dll) DIHAPUS.
-|    Jangan tambahkan lagi endpoint semacam ini di file production.
-| 2. Route yang didefinisikan dua kali (dashboard, logout, api/owner,
-|    auth/password/force-update) sudah di-dedupe -- hanya definisi PERTAMA
-|    (yang punya middleware paling ketat) yang dipertahankan.
-| 3. File ini HANYA didaftarkan sekali. Pastikan RouteServiceProvider TIDAK
-|    lagi memuat routes/web.php secara terpisah (lihat catatan #5 pada audit) --
-|    itu perbaikan di bootstrap/providers.php, bukan di file ini.
-| 4. Seluruh modul klinis (KIA/ANC, Farmasi, Loket, Mal Sehat, Laborat,
-|    Ruang Layanan) sekarang dibungkus middleware ['auth', role]. SESUAIKAN
-|    daftar role di bawah ini dengan role asli di config/rolemap.php --
-|    saya menebak berdasarkan pola yang sudah ada di file asli (loket,
-|    pelayanan, laborat, owner, admin). Ganti bila namanya berbeda.
-| 5. Middleware role di file asli memakai DUA class berbeda:
-|    App\Http\Middleware\CheckRole  DAN  App\Http\Middleware\Auth\CheckRole.
-|    Ini kemungkinan bug/inkonsistensi. Saya menstandarkan ke SATU alias
-|    route 'role:' (pastikan alias ini terdaftar ke salah satu class itu
-|    di bootstrap/app.php -> ->withMiddleware(fn($m) => $m->alias([...])).
-| 6. Ini baru memperbaiki AUTH/ROLE di layer ROUTE. Temuan lain (isolasi
-|    tenant/puskId, mass assignment, race condition SEQ/noUrut, dd() aktif,
-|    v-html XSS, dsb) ada di controller/service/Vue -- tidak bisa
-|    diperbaiki lewat routes/web.php saja. Lihat file audit terpisah.
-|--------------------------------------------------------------------------
-*/
+
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'index'])
