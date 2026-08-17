@@ -1,16 +1,5 @@
 # Modul Skrining Penyakit Tidak Menular (PTM) — Simpuswangi
 
-## Identitas Proyek
-
-| Item | Keterangan |
-|---|---|
-| Nama Aplikasi | Simpuswangi — Modul Skrining PTM |
-| Jenis Modul | Skrining Penyakit Tidak Menular (Non-Communicable Disease) |
-| Pengembang | Moh. Aldi Rohmatulloh |
-| NIM | 362258302125 |
-| Arsitektur | Single Page Application (SPA) |
-| Basis Sistem | Sistem Informasi Puskesmas (SIMPUS) |
-
 ## Deskripsi Aplikasi
 
 Modul Skrining PTM merupakan bagian dari **Simpuswangi**, sistem informasi kesehatan yang digunakan oleh Pusat Kesehatan Masyarakat (Puskesmas) untuk mendukung proses skrining Penyakit Tidak Menular (PTM). Modul ini dirancang untuk membantu tenaga kesehatan dalam melakukan pemeriksaan skrining, mencatat data pasien berisiko (khususnya hipertensi dan diabetes melitus), menghasilkan laporan sesuai standar klaster 3 PTM, serta mengintegrasikan data hasil pemeriksaan ke platform kesehatan nasional **SATUSEHAT** melalui standar **FHIR (Fast Healthcare Interoperability Resources)**.
@@ -58,6 +47,63 @@ Pengembangan modul ini dilakukan dengan pendekatan **Iterative Incremental**, de
 3. **Integrasi** — penggabungan fitur baru dengan modul yang sudah ada, termasuk pengujian integrasi dengan SATUSEHAT Sandbox
 4. **Pengujian** — verifikasi fungsional dan penyesuaian berdasarkan hasil uji
 5. **Evaluasi & Iterasi Berikutnya** — peninjauan hasil sebagai dasar perencanaan iterasi selanjutnya
+
+## Cara Pemasangan
+
+### Prasyarat
+
+- PHP >= 8.1
+- Composer
+- Node.js >= 18 & NPM
+- Database (MySQL/MariaDB)
+- Git
+
+### Langkah Instalasi
+
+1. **Clone repository**
+   ```bash
+   git clone https://github.com/skrtaldi/simpuswangi-ptm.git
+   cd newsimpuswangi
+   ```
+
+2. **Install dependency backend (Laravel)**
+   ```bash
+   composer install
+   ```
+
+3. **Install dependency frontend (Vue 3 + Inertia)**
+   ```bash
+   npm install
+   ```
+
+4. **Salin file environment dan konfigurasi**
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
+   Sesuaikan konfigurasi berikut pada file `.env`:
+   - Koneksi database (`DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`)
+   - Kredensial SATUSEHAT Sandbox (`SATUSEHAT_CLIENT_ID`, `SATUSEHAT_CLIENT_SECRET`, `SATUSEHAT_BASE_URL`, `SATUSEHAT_ORGANIZATION_ID`, dll.)
+
+5. **Migrasi dan seeding database**
+   ```bash
+   php artisan migrate --seed
+   ```
+
+6. **Run asset frontend**
+   ```bash
+   npm run dev     # otomatis run php artisan serve
+   ```
+
+### Verifikasi Instalasi
+
+- Pastikan koneksi ke SATUSEHAT Sandbox berhasil dengan melakukan uji kirim data skrining pada lingkungan sandbox terlebih dahulu sebelum digunakan pada lingkungan produksi.
+- Periksa log SATUSEHAT (`SatuSehatLog`) untuk memastikan request/response tersimpan dengan benar.
+
+## Pengembang
+
+> Moh Aldi Rohmatulloh, NIM 362258302125, Program Studi Teknologi Rekayasa Perangkat Lunak, Jurusan Bisnis dan Informatika
+
 
 ## Status Pengembangan
 
