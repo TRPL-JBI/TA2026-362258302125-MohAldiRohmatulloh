@@ -23,9 +23,9 @@ Form pemeriksaan untuk mencatat hasil skrining Penyakit Tidak Menular, termasuk 
 
 ### 2. Integrasi dengan Sandbox SATUSEHAT
 Layer integrasi yang mengirimkan data hasil skrining ke platform SATUSEHAT dalam bentuk resource FHIR standar:
-- `Encounter` — pencatatan kunjungan/episode pelayanan
-- `Observation` — hasil pemeriksaan (misalnya observasi diabetes)
-- `Condition` — diagnosis/kondisi pasien (misalnya obesitas)
+- `Encounter:` pencatatan kunjungan/episode pelayanan
+- `Observation:` hasil pemeriksaan (misalnya observasi diabetes)
+- `Condition:` diagnosis/kondisi pasien (misalnya obesitas)
 
 Setiap transaksi pengiriman dan respons dari SATUSEHAT dicatat dalam log sistem untuk keperluan audit dan penelusuran kesalahan.
 
@@ -42,11 +42,11 @@ Ringkasan visual data skrining PTM (jumlah kasus, tren, capaian program) untuk m
 
 Pengembangan modul ini dilakukan dengan pendekatan **Iterative Incremental**, dengan siklus umum sebagai berikut:
 
-1. **Perencanaan Iterasi** — menentukan fitur/bagian yang akan dikembangkan pada iterasi berjalan
-2. **Desain & Implementasi** — pengembangan komponen backend (Laravel) dan frontend (Vue + Inertia) secara paralel
-3. **Integrasi** — penggabungan fitur baru dengan modul yang sudah ada, termasuk pengujian integrasi dengan SATUSEHAT Sandbox
-4. **Pengujian** — verifikasi fungsional dan penyesuaian berdasarkan hasil uji
-5. **Evaluasi & Iterasi Berikutnya** — peninjauan hasil sebagai dasar perencanaan iterasi selanjutnya
+1. **Perencanaan Iterasi:** menentukan fitur/bagian yang akan dikembangkan pada iterasi berjalan
+2. **Desain & Implementasi:** — pengembangan komponen backend (Laravel) dan frontend (Vue + Inertia) secara paralel
+3. **Integrasi:** penggabungan fitur baru dengan modul yang sudah ada, termasuk pengujian integrasi dengan SATUSEHAT Sandbox
+4. **Pengujian:** verifikasi fungsional dan penyesuaian berdasarkan hasil uji
+5. **Evaluasi & Iterasi Berikutnya:** peninjauan hasil sebagai dasar perencanaan iterasi selanjutnya
 
 ## Cara Pemasangan
 
@@ -102,7 +102,7 @@ Pengembangan modul ini dilakukan dengan pendekatan **Iterative Incremental**, de
 
 ## Pengembang
 
-> Moh Aldi Rohmatulloh, NIM 362258302125, Program Studi Teknologi Rekayasa Perangkat Lunak, Jurusan Bisnis dan Informatika
+> Moh Aldi Rohmatulloh, NIM 362258302125, Program Studi Teknologi Rekayasa Perangkat Lunak, Jurusan Bisnis dan Informatika, 2026
 
 
 ## Status Pengembangan
