@@ -67,7 +67,7 @@ class HipertensiObservationService
         $data = [
             'idPelayanan' => $idPelayanan,
             'tanggal'     => now(),
-            'puskId'      => Auth::id(),
+            'puskId'      => Auth::user()->unit,
             'resource'    => $resource,
             'idResponse'  => $idResponse,
             'method'      => $method,
@@ -179,7 +179,7 @@ class HipertensiObservationService
 
         $this->simpanLog(
             idPelayanan: $idPelayanan,
-            resource: 'Observation-BloodPressure',
+            resource: 'Observation',
             idResponse: $id,
             method: 'POST',
             kirim: $payload,

@@ -11,7 +11,7 @@ use App\Models\RuangLayanan\SkriningPTM\SatuSehatLog;
 
 class RiwayatPTMService
 {
-    // ✅ Constructor di atas semua method
+    // Constructor di atas semua method
     public function __construct(
         private EncounterService $encounterService
     ) {}
@@ -136,7 +136,7 @@ class RiwayatPTMService
         $data = [
             'idPelayanan' => $idPelayanan,
             'tanggal'     => now(),
-            'puskId'      => '3',
+            'puskId'      => Auth::user()->unit,
             'resource'    => $resource,
             'idResponse'  => $idResponse,
             'method'      => $method,

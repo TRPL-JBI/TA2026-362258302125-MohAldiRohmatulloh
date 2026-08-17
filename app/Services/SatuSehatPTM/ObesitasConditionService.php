@@ -182,7 +182,7 @@ class ObesitasConditionService
         $patientId   = $skrining->patient_id;
         $encounterId = $skrining->encounter_id;
         $practitionerId = $skrining->id_petugas;
-        $puskId = Auth::id();
+        $puskId = Auth::user()->unit;
 
         $icdImt = $this->resolveImt($obesitas->interpretasi_ptm);
         $icdLp  = $this->resolveLp($obesitas->interpretasi_lp);

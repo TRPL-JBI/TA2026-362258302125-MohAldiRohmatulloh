@@ -353,7 +353,7 @@ class DiabetesObservationService
         $effectiveAt = now()->toIso8601String();
         $practitionerId = $skrining->id_petugas;
 
-        $puskId      = Auth::id();
+        $puskId = Auth::user()->unit;
 
         $fields = [
             'gula_darah_puasa'    => $diabetes->gula_darah_puasa,
@@ -364,7 +364,7 @@ class DiabetesObservationService
 
         $entries = [];
         $entryKeys = [];
-        $observationByKey = []; 
+        $observationByKey = [];
 
         foreach ($fields as $key => $value) {
             if (is_null($value)) continue;
