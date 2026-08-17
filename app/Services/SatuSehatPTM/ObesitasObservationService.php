@@ -172,7 +172,7 @@ class ObesitasObservationService
         $encounterId = $skrining->encounter_id;
         $practitionerId = $skrining->id_petugas;
         $effectiveAt = now()->toIso8601String();
-        $puskId      = Auth::id();
+        $puskId      = Auth::user()->unit;
 
         $existingId = $this->findExisting($encounterId, '39156-5');
         if ($existingId) {
